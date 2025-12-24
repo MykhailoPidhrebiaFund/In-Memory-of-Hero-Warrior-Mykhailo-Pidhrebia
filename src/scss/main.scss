@@ -1,0 +1,14 @@
+@use 'sass:map';
+@use './resets';
+@use './fonts';
+@use './typography';
+@use './vars' as *;
+
+body {
+  max-width: $max-container-width;
+  margin-inline: auto;
+}
+
+section {
+  padding-inline: map.get($spacing, '3xl');
+}

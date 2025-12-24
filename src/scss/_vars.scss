@@ -1,0 +1,66 @@
+$max-container-width: 1200px;
+$base-transition: 300ms;
+
+$spacing: (
+  'xs': 10px,
+  'sm': 16px,
+  'md': 24px,
+  'lg': 32px,
+  'xl': 40px,
+  '2xl': 48px,
+  '3xl': 64px,
+  '4xl': 80px,
+);
+
+$typography: (
+  'h1': (
+    'font-weight': 500,
+    'font-size-mobile': 132px,
+    'font-size-desktop': 132px,
+    'line-height-desktop': 100%,
+  ),
+  'h2': (
+    'font-weight': 500,
+    'font-size-mobile': 40px,
+    'font-size-desktop': 40px,
+    'line-height-mobile': 100%,
+    'line-height-desktop': 100%,
+  ),
+  'h3': (
+    'font-weight-mobile': 600,
+    'font-weight-desktop': 600,
+    'font-size-mobile': 32px,
+    'font-size-desktop': 32px,
+    'line-height-mobile': 120%,
+    'line-height-desktop': 120%,
+  ),
+  'h4': (
+    'font-weight': 600,
+    'font-size-mobile': 18px,
+    'font-size-desktop': 18px,
+    'line-height-mobile': 140%,
+    'line-height-desktop': 140%,
+  ),
+  'p': (
+    'font-weight': 400,
+    'font-size-mobile': 20px,
+    'font-size-desktop': 20px,
+    'line-height-mobile': 140%,
+    'line-height-desktop': 140%,
+  ),
+  'button-text': (
+    'font-weight': 400,
+    'font-size': 18px,
+    'line-height': 110%,
+  ),
+  'body': (
+    'font-weight': 400,
+    'font-size': 18px,
+    'line-height': 110%,
+  ),
+);
+
+$breakpoints: (
+  'tablet': 640px,
+  'desktop': 1200px,
+);

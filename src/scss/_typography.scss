@@ -1,0 +1,76 @@
+@use 'sass:map';
+@use './vars' as *;
+@use './mixins' as *;
+
+h1 {
+  font-weight: map.get(map.get($typography, 'h1'), 'font-weight');
+  font-size: map.get(map.get($typography, 'h1'), 'font-size-mobile');
+  line-height: map.get(map.get($typography, 'h1'), 'line-height-mobile');
+  letter-spacing: map.get(map.get($typography, 'h1'), 'letter-spacing-mobile');
+}
+
+h2 {
+  font-weight: map.get(map.get($typography, 'h2'), 'font-weight');
+  font-size: map.get(map.get($typography, 'h2'), 'font-size-mobile');
+  line-height: map.get(map.get($typography, 'h2'), 'line-height-mobile');
+  letter-spacing: map.get(map.get($typography, 'h2'), 'letter-spacing-mobile');
+}
+
+h3 {
+  font-weight: map.get(map.get($typography, 'h3'), 'font-weight-mobile');
+  font-size: map.get(map.get($typography, 'h3'), 'font-size-mobile');
+  line-height: map.get(map.get($typography, 'h3'), 'line-height-mobile');
+}
+
+h4 {
+  font-weight: map.get(map.get($typography, 'h4'), 'font-weight');
+  font-size: map.get(map.get($typography, 'h4'), 'font-size-mobile');
+  line-height: map.get(map.get($typography, 'h4'), 'line-height-mobile');
+}
+
+p {
+  font-weight: map.get(map.get($typography, 'p'), 'font-weight');
+  font-size: map.get(map.get($typography, 'p'), 'font-size-mobile');
+  line-height: map.get(map.get($typography, 'p'), 'line-height-mobile');
+}
+
+body {
+  font-family: Inter, sans-serif;
+  font-weight: map.get(map.get($typography, 'body'), 'font-weight');
+  font-size: map.get(map.get($typography, 'body'), 'font-size');
+  line-height: map.get(map.get($typography, 'body'), 'line-height');
+}
+
+button {
+  font-weight: map.get(map.get($typography, 'button-text'), 'font-weight');
+  font-size: map.get(map.get($typography, 'button-text'), 'font-size');
+  line-height: map.get(map.get($typography, 'button-text'), 'line-height');
+}
+
+@include on-tablet {
+  h1 {
+    font-size: map.get(map.get($typography, 'h1'), 'font-size-desktop');
+    line-height: map.get(map.get($typography, 'h1'), 'line-height-desktop');
+  }
+
+  h2 {
+    font-size: map.get(map.get($typography, 'h2'), 'font-size-desktop');
+    line-height: map.get(map.get($typography, 'h2'), 'line-height-desktop');
+  }
+
+  h3 {
+    font-weight: map.get(map.get($typography, 'h3'), 'font-weight-desktop');
+    font-size: map.get(map.get($typography, 'h3'), 'font-size-desktop');
+    line-height: map.get(map.get($typography, 'h3'), 'line-height-desktop');
+  }
+
+  h4 {
+    font-size: map.get(map.get($typography, 'h4'), 'font-size-desktop');
+    line-height: map.get(map.get($typography, 'h4'), 'line-height-desktop');
+  }
+
+  p {
+    font-size: map.get(map.get($typography, 'p'), 'font-size-desktop');
+    line-height: map.get(map.get($typography, 'p'), 'line-height-desktop');
+  }
+}
