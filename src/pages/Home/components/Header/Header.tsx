@@ -7,7 +7,7 @@ export const Header: React.FC = () => {
   const navigate = useNavigate();
 
   return (
-    <header className="header">
+    <header id="header" className="header">
       <div className="header__img"></div>
 
       <section className="header__section">
