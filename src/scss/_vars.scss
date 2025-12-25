@@ -1,5 +1,9 @@
+@use 'sass:map';
+
 $max-container-width: 1300px;
 $base-transition: 300ms;
+$base-font: SFPro, sans-serif;
+$secondary-font: Mak, sans-serif;
 
 $colors: (
   'midnight': #030317,
@@ -24,11 +28,14 @@ $spacing: (
   '4xl': 80px,
 );
 
+$section-gap: map.get($spacing, '4xl');
+
 $typography: (
   'h1': (
     'font-weight': 300,
-    'font-size-mobile': 128px,
+    'font-size-mobile': 68px,
     'font-size-desktop': 128px,
+    'line-height-mobile': 110%,
     'line-height-desktop': 110%,
     'letter-spacing': -1%,
   ),
@@ -80,6 +87,6 @@ $typography: (
 );
 
 $breakpoints: (
-  'tablet': 640px,
-  'desktop': 1200px,
+  'tablet': 920px,
+  'desktop': 1260px,
 );

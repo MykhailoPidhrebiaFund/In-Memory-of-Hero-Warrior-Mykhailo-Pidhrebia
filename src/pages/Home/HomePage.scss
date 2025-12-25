@@ -1,0 +1,7 @@
+@use '../../scss/vars' as *;
+
+.home {
+  display: flex;
+  flex-direction: column;
+  gap: $section-gap;
+}

@@ -1,0 +1,30 @@
+@use 'sass:map';
+@use '../../../../scss/vars' as *;
+@use '../../../../scss/mixins' as *;
+
+.army {
+  display: flex;
+  flex-direction: column;
+  gap: map.get($spacing, 'xl');
+
+  &__img-group {
+    @include grid(1);
+    gap: map.get($spacing, 'md');
+
+    @include on-tablet {
+      @include grid(3);
+    }
+
+    img {
+      width: 100%;
+    }
+  }
+
+  p {
+    margin-top: map.get($spacing, 'md');
+
+    @include on-tablet {
+      max-width: 650px;
+    }
+  }
+}

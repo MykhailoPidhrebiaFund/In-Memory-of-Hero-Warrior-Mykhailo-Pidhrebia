@@ -1,0 +1,32 @@
+@use 'sass:map';
+@use '../../../../scss/vars' as *;
+@use '../../../../scss/mixins' as *;
+
+.studentship {
+  display: flex;
+  flex-direction: column;
+  gap: map.get($spacing, 'xl');
+
+  &__section {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    gap: map.get($spacing, 'md');
+
+    @include on-tablet {
+      flex-direction: row;
+    }
+  }
+
+  &__img {
+    width: 100%;
+
+    @include on-tablet {
+      max-width: 420px;
+    }
+
+    @include on-desktop {
+      max-width: 645px;
+    }
+  }
+}

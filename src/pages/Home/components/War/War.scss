@@ -1,0 +1,96 @@
+@use 'sass:map';
+@use '../../../../scss/vars' as *;
+@use '../../../../scss/mixins' as *;
+
+.war {
+  display: flex;
+  flex-direction: column;
+  gap: map.get($spacing, 'xl');
+
+  &__section {
+    display: flex;
+    flex-direction: column;
+    gap: map.get($spacing, 'md');
+
+    &:nth-child(2) {
+      .war__text-content {
+        display: flex;
+        align-items: flex-end;
+        gap: map.get($spacing, '2xl');
+
+        @include on-tablet {
+          p {
+            max-width: calc(50% - map.get($spacing, 'md'));
+          }
+        }
+      }
+
+      @include on-tablet {
+        img {
+          width: 50%;
+        }
+      }
+    }
+
+    &:nth-child(3) {
+      p {
+        @include on-tablet {
+          max-width: 650px;
+        }
+      }
+    }
+
+    &:nth-child(4) {
+      @include on-tablet {
+        flex-direction: row;
+        justify-content: space-between;
+
+        p {
+          max-width: 500px;
+        }
+      }
+    }
+
+    &:nth-child(5) {
+      @include on-tablet {
+        p {
+          max-width: 650px;
+        }
+      }
+    }
+  }
+
+  &__text-content {
+    display: flex;
+    flex-direction: column;
+    gap: map.get($spacing, 'md');
+  }
+
+  &__img-group {
+    @include grid(1);
+    gap: map.get($spacing, 'md');
+
+    @include on-tablet {
+      @include grid(3);
+    }
+
+    img {
+      width: 100%;
+    }
+  }
+
+  &__quotes {
+    display: flex;
+    flex-direction: column;
+    gap: map.get($spacing, 'md');
+    font-family: $secondary-font;
+
+    @include on-tablet {
+      max-width: 740px;
+    }
+  }
+
+  &__btn {
+    text-align: end;
+  }
+}
