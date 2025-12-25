@@ -1,0 +1,28 @@
+@use 'sass:map';
+@use '../../scss/vars' as *;
+@use '../../scss/mixins' as *;
+@use '../../scss/typography' as *;
+
+.footer {
+  display: flex;
+  flex-direction: column;
+  row-gap: map.get($spacing, 'md');
+  justify-content: space-between;
+  padding-block: map.get($spacing, 'xl');
+
+  @include container;
+
+  @include on-tablet {
+    flex-direction: row;
+  }
+
+  &__list {
+    @include on-tablet {
+      text-align: end;
+    }
+  }
+
+  &__link {
+    @include secondary-text;
+  }
+}
