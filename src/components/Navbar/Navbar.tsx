@@ -62,6 +62,7 @@ export const Navbar: React.FC = () => {
         'nav--visible': atTop,
         'nav--hidden-on-scroll': !atTop,
         'nav--collapsed': isOpen,
+        'nav--privacy-policy': location.pathname === '/privacy-policy',
       })}
     >
       <div className="nav__section" onClick={() => navigateToSection('header')}>

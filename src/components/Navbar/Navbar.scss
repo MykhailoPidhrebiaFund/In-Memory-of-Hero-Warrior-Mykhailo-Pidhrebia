@@ -184,4 +184,19 @@
     opacity: 1;
     transform: translateY(0);
   }
+
+  &--privacy-policy {
+    .nav__link {
+      color: var(--nav-text-color);
+    }
+
+    .nav__item {
+      border-color: var(--nav-text-color);
+    }
+
+    button {
+      color: var(--nav-text-color);
+      border-color: var(--nav-text-color);
+    }
+  }
 }
