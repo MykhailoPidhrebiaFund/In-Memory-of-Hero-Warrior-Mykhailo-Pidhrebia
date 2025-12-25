@@ -1,7 +1,19 @@
-$max-container-width: 1200px;
+$max-container-width: 1300px;
 $base-transition: 300ms;
 
+$colors: (
+  'midnight': #030317,
+  'cosmos': #090920,
+  'deep-indigo': #202041,
+  'slate': #5f5f7d,
+  'lavender-gray': #9494a8,
+  'pale-lilac': #bfbfd7,
+  'ghost-lavender': #d8d8f1,
+  'moonstone': #e9e9ff,
+);
+
 $spacing: (
+  '2xs': 4px,
   'xs': 10px,
   'sm': 16px,
   'md': 24px,
@@ -14,17 +26,19 @@ $spacing: (
 
 $typography: (
   'h1': (
-    'font-weight': 500,
-    'font-size-mobile': 132px,
-    'font-size-desktop': 132px,
-    'line-height-desktop': 100%,
+    'font-weight': 300,
+    'font-size-mobile': 128px,
+    'font-size-desktop': 128px,
+    'line-height-desktop': 110%,
+    'letter-spacing': -1%,
   ),
   'h2': (
     'font-weight': 500,
     'font-size-mobile': 40px,
     'font-size-desktop': 40px,
-    'line-height-mobile': 100%,
-    'line-height-desktop': 100%,
+    'line-height-mobile': 110%,
+    'line-height-desktop': 110%,
+    'letter-spacing': -1%,
   ),
   'h3': (
     'font-weight-mobile': 600,
@@ -33,13 +47,15 @@ $typography: (
     'font-size-desktop': 32px,
     'line-height-mobile': 120%,
     'line-height-desktop': 120%,
+    'letter-spacing': -1%,
   ),
   'h4': (
     'font-weight': 600,
     'font-size-mobile': 18px,
     'font-size-desktop': 18px,
-    'line-height-mobile': 140%,
-    'line-height-desktop': 140%,
+    'line-height-mobile': 120%,
+    'line-height-desktop': 120%,
+    'letter-spacing': -1%,
   ),
   'p': (
     'font-weight': 400,
@@ -47,16 +63,19 @@ $typography: (
     'font-size-desktop': 20px,
     'line-height-mobile': 140%,
     'line-height-desktop': 140%,
+    'letter-spacing': 0%,
   ),
   'button-text': (
     'font-weight': 400,
     'font-size': 18px,
     'line-height': 110%,
+    'letter-spacing': 0%,
   ),
   'body': (
     'font-weight': 400,
-    'font-size': 18px,
-    'line-height': 110%,
+    'font-size': 20px,
+    'line-height': 140%,
+    'letter-spacing': 0%,
   ),
 );
 

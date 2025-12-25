@@ -1,0 +1,49 @@
+@use '../../scss/vars' as *;
+
+.btn {
+  white-space: nowrap;
+  border-radius: 24px;
+
+  transition:
+    color $base-transition ease,
+    background-color $base-transition ease,
+    border-color $base-transition ease;
+
+  &--primary {
+    padding-inline: 49px;
+    height: 48px;
+    color: var(--btn-text-color);
+    background-color: var(--btn-bg-color);
+
+    &:hover {
+      color: var(--btn-text-hover-color);
+      background-color: var(--btn-bg-hover-color);
+    }
+
+    &:active {
+      color: var(--btn-text-active-color);
+      background-color: var(--btn-bg-active-color);
+    }
+  }
+
+  &--secondary {
+    padding-inline: 16px;
+    height: 40px;
+    border: 1px solid transparent;
+    color: var(--btn-outline-text-color);
+    background-color: var(--btn-outline-bg-color);
+    border-color: var(--btn-outline-border-color);
+
+    &:hover {
+      color: var(--btn-outline-text-hover-color);
+      background-color: var(--btn-outline-bg-hover-color);
+      border-color: var(--btn-outline-border-hover-color);
+    }
+
+    &:active {
+      color: var(--btn-outline-text-active-color);
+      background-color: var(--btn-outline-bg-active-color);
+      border-color: var(--btn-outline-border-active-color);
+    }
+  }
+}

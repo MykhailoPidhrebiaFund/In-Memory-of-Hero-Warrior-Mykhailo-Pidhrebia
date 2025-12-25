@@ -18,3 +18,7 @@
   gap: map.get($spacing, 'md');
   grid-template-columns: repeat($cols, minmax(0, 1fr));
 }
+
+@mixin container {
+  padding-inline: map.get($spacing, '3xl');
+}

@@ -1,14 +1,16 @@
 @use 'sass:map';
 @use './resets';
 @use './fonts';
+@use './theme';
 @use './typography';
 @use './vars' as *;
+@use './mixins' as *;
 
 body {
-  max-width: $max-container-width;
-  margin-inline: auto;
+  color: var(--text-color);
+  background-color: var(--bg-color);
 }
 
 section {
-  padding-inline: map.get($spacing, '3xl');
+  @include container;
 }

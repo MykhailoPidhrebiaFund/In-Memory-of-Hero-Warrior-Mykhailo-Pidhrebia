@@ -1,0 +1,29 @@
+@use 'sass:map';
+@use './vars' as *;
+
+:root {
+  --bg-color: #{map.get($colors, 'midnight')};
+
+  --text-color: #{map.get($colors, 'moonstone')};
+  --nav-text-color: #{map.get($colors, 'deep-indigo')};
+
+  --btn-bg-color: #{map.get($colors, 'deep-indigo')};
+  --btn-bg-hover-color: #{map.get($colors, 'moonstone')};
+  --btn-bg-active-color: #{map.get($colors, 'pale-lilac')};
+
+  --btn-text-color: #{map.get($colors, 'moonstone')};
+  --btn-text-hover-color: #{map.get($colors, 'midnight')};
+  --btn-text-active-color: #{map.get($colors, 'midnight')};
+
+  --btn-outline-bg-color: transparent;
+  --btn-outline-bg-hover-color: #{map.get($colors, 'cosmos')};
+  --btn-outline-bg-active-color: #{map.get($colors, 'deep-indigo')};
+
+  --btn-outline-border-color: #{map.get($colors, 'midnight')};
+  --btn-outline-border-hover-color: #{map.get($colors, 'deep-indigo')};
+  --btn-outline-border-active-color: #{map.get($colors, 'slate')};
+
+  --btn-outline-text-color: #{map.get($colors, 'midnight')};
+  --btn-outline-text-hover-color: #{map.get($colors, 'moonstone')};
+  --btn-outline-text-active-color: #{map.get($colors, 'pale-lilac')};
+}
