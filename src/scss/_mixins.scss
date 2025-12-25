@@ -20,5 +20,9 @@
 }
 
 @mixin container {
-  padding-inline: map.get($spacing, '3xl');
+  padding-inline: map.get($spacing, 'xl');
+
+  @include on-tablet() {
+    padding-inline: map.get($spacing, '3xl');
+  }
 }

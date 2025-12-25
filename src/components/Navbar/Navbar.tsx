@@ -1,4 +1,5 @@
 import type React from 'react';
+import { useNavigate } from 'react-router';
 import { BrandLogo } from '../BrandLogo';
 import { BtnType, Button } from '../Button';
 import { useEffect, useState } from 'react';
@@ -6,6 +7,8 @@ import clsx from 'clsx';
 import './Navbar.scss';
 
 export const Navbar: React.FC = () => {
+  const navigate = useNavigate();
+
   const [atTop, setAtTop] = useState(true);
   const [isOpen, setIsOpen] = useState(false);
 
@@ -19,6 +22,18 @@ export const Navbar: React.FC = () => {
     window.addEventListener('scroll', handleScroll);
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
+
+  const scrollTo = (id: string) => {
+    const el = document.getElementById(id);
+    el?.scrollIntoView({ behavior: 'smooth' });
+  };
+
+  const navItems = [
+    { id: 'childhood', label: 'Дитинство' },
+    { id: 'studentship', label: 'Студенство' },
+    { id: 'army', label: 'Армія' },
+    { id: 'war', label: 'Війна' },
+  ];
 
   return (
     <nav
@@ -34,32 +49,16 @@ export const Navbar: React.FC = () => {
 
       <div className="nav__section">
         <ul className="nav__list">
-          <li className="nav__item">
-            <a href="#" className="nav__link">
-              Дитинство
-            </a>
-          </li>
-
-          <li className="nav__item">
-            <a href="#" className="nav__link">
-              Студенство
-            </a>
-          </li>
-
-          <li className="nav__item">
-            <a href="#" className="nav__link">
-              Армія
-            </a>
-          </li>
-
-          <li className="nav__item">
-            <a href="#" className="nav__link">
-              Війна
-            </a>
-          </li>
+          {navItems.map((item) => (
+            <li key={item.id} className="nav__item">
+              <button onClick={() => scrollTo(item.id)} className="nav__link">
+                {item.label}
+              </button>
+            </li>
+          ))}
         </ul>
 
-        <Button onClick={() => {}} type={BtnType.SECONDARY}>
+        <Button onClick={() => navigate('/about')} type={BtnType.SECONDARY}>
           Про фонд
         </Button>
       </div>

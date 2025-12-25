@@ -1,0 +1,62 @@
+@use 'sass:map';
+@use '../../../../scss/vars' as *;
+@use '../../../../scss/mixins' as *;
+
+.childhood {
+  display: flex;
+  flex-direction: column;
+  gap: map.get($spacing, 'xl');
+
+  &__img {
+    margin-bottom: map.get($spacing, 'md');
+    width: 100%;
+
+    @include on-tablet {
+      width: 420px;
+    }
+
+    &--wide {
+      width: 100%;
+    }
+  }
+
+  &__section {
+    &:last-child {
+      .childhood__text-wrapper {
+        @include on-tablet {
+          p {
+            max-width: 650px;
+          }
+        }
+      }
+    }
+  }
+
+  &__text-wrapper {
+    display: flex;
+    justify-content: space-between;
+    gap: map.get($spacing, 'md');
+
+    flex-direction: column;
+
+    p {
+      width: 100%;
+    }
+
+    @include on-tablet {
+      flex-direction: row;
+    }
+
+    @include on-tablet {
+      p {
+        &:first-child {
+          max-width: 420px;
+        }
+
+        &:last-child {
+          max-width: 650px;
+        }
+      }
+    }
+  }
+}

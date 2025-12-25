@@ -1,8 +1,11 @@
 import type React from 'react';
 import './Header.scss';
 import { Button } from '../../../../components/Button';
+import { useNavigate } from 'react-router';
 
 export const Header: React.FC = () => {
+  const navigate = useNavigate();
+
   return (
     <header className="header">
       <div className="header__img"></div>
@@ -20,7 +23,7 @@ export const Header: React.FC = () => {
         </div>
 
         <div className="header__subsection">
-          <Button onClick={() => {}}>Про фонд</Button>
+          <Button onClick={() => navigate('/about')}>Про фонд</Button>
         </div>
       </section>
     </header>

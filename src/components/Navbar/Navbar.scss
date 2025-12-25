@@ -3,7 +3,18 @@
 @use '../../scss/mixins' as *;
 @use '../../scss/typography' as *;
 
+@mixin glass-effect {
+  background-color: #00000073;
+  -webkit-backdrop-filter: blur(10px);
+  backdrop-filter: blur(10px);
+}
+
 .nav {
+  transition:
+    background-color $base-transition ease,
+    -webkit-backdrop-filter $base-transition ease,
+    backdrop-filter $base-transition ease;
+
   position: fixed;
   z-index: 5;
   top: 0;
@@ -20,21 +31,6 @@
     transform $base-transition ease;
 
   @include container;
-
-  &--hidden-on-scroll {
-    opacity: 0;
-    transform: translateY(-10px);
-
-    &:hover {
-      opacity: 1;
-      transform: translateY(0);
-    }
-  }
-
-  &--visible {
-    opacity: 1;
-    transform: translateY(0);
-  }
 
   &__section {
     display: flex;
@@ -78,7 +74,8 @@
 
     &:last-child {
       @include on-desktop {
-        border-right: 1px solid var(--nav-text-color);
+        transition: border-color $base-transition ease;
+        border-right: 1px solid var(--bg-color);
       }
     }
 
@@ -88,6 +85,7 @@
   }
 
   &__link {
+    transition: color $base-transition ease;
     @include secondary-text;
   }
 
@@ -109,6 +107,8 @@
   }
 
   &--collapsed {
+    @include glass-effect;
+
     .nav__btn {
       span {
         position: absolute;
@@ -129,7 +129,59 @@
     }
 
     .nav__section:nth-child(2) {
+      width: 100%;
+      left: 0;
+
       display: flex;
+      align-items: flex-start;
+
+      @include glass-effect;
+      @include container;
+
+      padding-bottom: map.get($spacing, 'xl');
     }
+
+    .nav__link {
+      color: var(--nav-text-color);
+    }
+
+    .nav__item {
+      border-color: var(--nav-text-color);
+    }
+
+    button {
+      color: var(--nav-text-color);
+      border-color: var(--nav-text-color);
+    }
+  }
+
+  &--hidden-on-scroll {
+    @include glass-effect;
+
+    .nav__link {
+      color: var(--nav-text-color);
+    }
+
+    .nav__item {
+      border-color: var(--nav-text-color);
+    }
+
+    button {
+      color: var(--nav-text-color);
+      border-color: var(--nav-text-color);
+    }
+
+    // opacity: 0;
+    // transform: translateY(-10px);
+
+    // &:hover {
+    //   opacity: 1;
+    //   transform: translateY(0);
+    // }
+  }
+
+  &--visible {
+    opacity: 1;
+    transform: translateY(0);
   }
 }
