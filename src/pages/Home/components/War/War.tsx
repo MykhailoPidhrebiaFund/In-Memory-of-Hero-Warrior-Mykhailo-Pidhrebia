@@ -2,12 +2,14 @@ import type React from 'react';
 import './War.scss';
 import { Button } from '../../../../components/Button';
 import { useNavigate } from 'react-router';
+import { GallerySwiper } from '../GallerySwiper';
+import { warPhotos } from './data';
 
 export const War: React.FC = () => {
   const navigate = useNavigate();
 
   return (
-    <section id="war" className="war">
+    <div id="war" className="war">
       <div className="war__section">
         <h3 className="war__title">Війна</h3>
       </div>
@@ -32,10 +34,8 @@ export const War: React.FC = () => {
       </div>
 
       <div className="war__section">
-        <div className="war__img-group">
-          <img src="./images/war2.webp" alt="War photo №2" />
-          <img src="./images/war3.webp" alt="War photo №3" />
-          <img src="./images/war4.webp" alt="War photo №4" />
+        <div className="war__swiper">
+          <GallerySwiper images={warPhotos.slice(0, 3)} />
         </div>
 
         <p>
@@ -69,16 +69,14 @@ export const War: React.FC = () => {
           </p>
         </div>
 
-        <div className="war__img-group">
-          <img src="./images/family1.webp" alt="Family photo №1" />
-          <img src="./images/family2.webp" alt="Family photo №2" />
-          <img src="./images/family3.webp" alt="Family photo №3" />
+        <div className="war__swiper">
+          <GallerySwiper images={warPhotos.slice(3)} />
         </div>
 
         <div className="war__btn">
           <Button onClick={() => navigate('/about')}>Про фонд</Button>
         </div>
       </div>
-    </section>
+    </div>
   );
 };

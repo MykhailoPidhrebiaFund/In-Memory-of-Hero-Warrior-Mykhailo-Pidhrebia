@@ -1,6 +1,6 @@
 import type React from 'react';
 import './Header.scss';
-import { Button } from '../../../../components/Button';
+import { BtnType, Button } from '../../../../components/Button';
 import { useNavigate } from 'react-router';
 
 export const Header: React.FC = () => {
@@ -11,7 +11,7 @@ export const Header: React.FC = () => {
       <div className="header__img"></div>
 
       <section className="header__section">
-        <h1>
+        <h1 className="header__title">
           Михайло <br /> Підгребя
         </h1>
       </section>
@@ -24,6 +24,9 @@ export const Header: React.FC = () => {
 
         <div className="header__subsection">
           <Button onClick={() => navigate('/about')}>Про фонд</Button>
+          <Button onClick={() => navigate('/about')} type={BtnType.SECONDARY}>
+            Про фонд
+          </Button>
         </div>
       </section>
     </header>

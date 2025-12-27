@@ -31,6 +31,8 @@ $spacing: (
 
 $section-gap-mobile: map.get($spacing, '2xl');
 $section-gap: map.get($spacing, '4xl');
+$section-padding-mobile: map.get($spacing, 'sm');
+$section-padding: map.get($spacing, '3xl');
 
 $typography: (
   'h1': (
@@ -76,7 +78,8 @@ $typography: (
   ),
   'button-text': (
     'font-weight': 400,
-    'font-size': 18px,
+    'font-size-mobile': 14px,
+    'font-size-desktop': 18px,
     'line-height': 110%,
     'letter-spacing': 0%,
   ),

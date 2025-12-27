@@ -7,24 +7,58 @@
   flex-direction: column;
   gap: map.get($spacing, 'xl');
 
-  &__img-group {
-    @include grid(1);
+  &__section {
+    display: flex;
+    flex-direction: column;
     gap: map.get($spacing, 'md');
-
-    @include on-tablet {
-      @include grid(3);
-    }
-
-    img {
-      width: 100%;
-    }
   }
 
-  p {
-    margin-top: map.get($spacing, 'md');
+  &__img {
+    width: 100%;
+  }
 
-    @include on-tablet {
-      max-width: 650px;
+  @include on-tablet {
+    &__section {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: map.get($spacing, 'lg');
+    }
+
+    &__img {
+      &__first {
+        grid-column: 1 / 2;
+        grid-row: 1;
+      }
+
+      &--second {
+        grid-column: 2 / 3;
+        grid-row: 1;
+      }
+
+      &--third {
+        grid-column: 3 / 4;
+        grid-row: 1;
+      }
+    }
+
+    &__text {
+      &--first {
+        grid-column: 1 / -1;
+        grid-row: 2;
+        max-width: 650px;
+      }
+
+      &--second {
+        grid-column: 1 / -1;
+        grid-row: 3;
+        max-width: 650px;
+      }
+
+      &--third {
+        grid-column: 1 / -1;
+        grid-row: 4;
+        max-width: 650px;
+      }
     }
   }
 }

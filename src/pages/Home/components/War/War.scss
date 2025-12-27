@@ -8,6 +8,8 @@
   gap: map.get($spacing, 'xl');
 
   &__section {
+    @include container;
+
     display: flex;
     flex-direction: column;
     gap: map.get($spacing, 'md');
@@ -15,7 +17,7 @@
     &:nth-child(2) {
       .war__text-content {
         display: flex;
-        align-items: flex-end;
+        align-items: flex-start;
         gap: map.get($spacing, '2xl');
 
         @include on-tablet {
@@ -27,14 +29,28 @@
 
       @include on-tablet {
         img {
+          margin-left: auto;
           width: 50%;
         }
       }
     }
 
-    &:nth-child(3) {
-      p {
+    &:nth-child(3),
+    &:nth-child(5) {
+      & > *:not([class*='war__swiper']) {
+        padding-right: $section-padding-mobile;
+
         @include on-tablet {
+          padding-right: 0;
+        }
+      }
+
+      padding-right: 0;
+
+      @include on-tablet {
+        padding-right: $section-padding;
+
+        p {
           max-width: 650px;
         }
       }
@@ -50,14 +66,6 @@
         }
       }
     }
-
-    &:nth-child(5) {
-      @include on-tablet {
-        p {
-          max-width: 650px;
-        }
-      }
-    }
   }
 
   &__text-content {
@@ -66,27 +74,31 @@
     gap: map.get($spacing, 'md');
   }
 
-  &__img-group {
-    @include grid(1);
-    gap: map.get($spacing, 'md');
-
-    @include on-tablet {
-      @include grid(3);
-    }
-
-    img {
-      width: 100%;
-    }
-  }
-
   &__quotes {
     display: flex;
     flex-direction: column;
     gap: map.get($spacing, 'md');
+    padding: map.get($spacing, 'sm');
     font-family: $secondary-font;
 
+    border-radius: $base-radius;
+    color: var(--bg-color);
+    background-color: var(--text-color);
+
     @include on-tablet {
+      padding: 0;
       max-width: 740px;
+      border-radius: $base-radius;
+      color: var(--text-color);
+      background-color: var(--bg-color);
+    }
+
+    h2 {
+      font-size: 20px;
+
+      @include on-tablet {
+        font-size: map.get(map.get($typography, 'h2'), 'font-size-desktop');
+      }
     }
   }
 

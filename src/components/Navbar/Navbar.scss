@@ -11,7 +11,6 @@
 
 .nav {
   transition:
-    background-color $base-transition ease,
     -webkit-backdrop-filter $base-transition ease,
     backdrop-filter $base-transition ease,
     opacity $base-transition ease,
@@ -84,7 +83,6 @@
 
   &__item {
     padding: map.get($spacing, 'xs') map.get($spacing, 'sm');
-    padding-left: 0;
 
     &:last-child {
       @include on-desktop {
@@ -237,6 +235,7 @@
 
       @include container;
 
+      padding-top: 105px;
       padding-bottom: map.get($spacing, 'xl');
     }
 
@@ -251,13 +250,6 @@
     button {
       color: var(--nav-text-color);
       border-color: var(--nav-text-color);
-    }
-
-    .nav__about-btn-wrapper {
-      button {
-        padding: 10px 50px;
-        font-size: 14px;
-      }
     }
   }
 }

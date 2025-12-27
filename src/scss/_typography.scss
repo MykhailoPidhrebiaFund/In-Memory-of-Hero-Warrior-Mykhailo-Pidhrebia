@@ -48,7 +48,7 @@ body {
 
 button {
   font-weight: map.get(map.get($typography, 'button-text'), 'font-weight');
-  font-size: map.get(map.get($typography, 'button-text'), 'font-size');
+  font-size: map.get(map.get($typography, 'button-text'), 'font-size-mobile');
   line-height: map.get(map.get($typography, 'button-text'), 'line-height');
   letter-spacing: map.get(map.get($typography, 'button-text'), 'letter-spacing');
 }
@@ -93,5 +93,9 @@ button {
 
   body {
     font-size: map.get(map.get($typography, 'body'), 'font-size-desktop');
+  }
+
+  button {
+    font-size: map.get(map.get($typography, 'button-text'), 'font-size-desktop');
   }
 }
