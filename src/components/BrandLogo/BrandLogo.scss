@@ -1,5 +1,6 @@
 @use 'sass:map';
 @use '../../scss/vars' as *;
+@use '../../scss/mixins' as *;
 
 .brand-logo {
   display: inline-flex;
@@ -7,11 +8,19 @@
   justify-content: center;
   gap: map.get($spacing, '2xs');
   text-transform: uppercase;
-  font-size: 18px;
+  font-size: 14px;
   line-height: 100%;
 
   &__name {
-    font-size: 24px;
+    font-size: 20px;
     font-weight: 600;
+  }
+
+  @include on-tablet {
+    font-size: 18px;
+
+    &__name {
+      font-size: 24px;
+    }
   }
 }

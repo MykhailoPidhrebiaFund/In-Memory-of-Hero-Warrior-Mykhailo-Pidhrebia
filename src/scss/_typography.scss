@@ -41,7 +41,7 @@ p {
 body {
   font-family: $base-font;
   font-weight: map.get(map.get($typography, 'body'), 'font-weight');
-  font-size: map.get(map.get($typography, 'body'), 'font-size');
+  font-size: map.get(map.get($typography, 'body'), 'font-size-mobile');
   line-height: map.get(map.get($typography, 'body'), 'line-height');
   letter-spacing: map.get(map.get($typography, 'body'), 'letter-spacing');
 }
@@ -55,9 +55,13 @@ button {
 
 @mixin secondary-text {
   font-weight: 400;
-  font-size: 18px;
+  font-size: 16px;
   line-height: 140%;
   letter-spacing: 0%;
+
+  @include on-tablet {
+    font-size: 18px;
+  }
 }
 
 @include on-tablet {
@@ -85,5 +89,9 @@ button {
   p {
     font-size: map.get(map.get($typography, 'p'), 'font-size-desktop');
     line-height: map.get(map.get($typography, 'p'), 'line-height-desktop');
+  }
+
+  body {
+    font-size: map.get(map.get($typography, 'body'), 'font-size-desktop');
   }
 }

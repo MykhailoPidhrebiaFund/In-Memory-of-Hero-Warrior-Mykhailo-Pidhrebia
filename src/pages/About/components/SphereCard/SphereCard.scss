@@ -1,0 +1,51 @@
+@use 'sass:map';
+@use '../../../../scss/vars' as *;
+@use '../../../../scss/mixins' as *;
+
+.sphere-card {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  padding: map.get($spacing, 'md') calc(map.get($spacing, 'sm') * 2);
+  gap: map.get($spacing, 'md');
+
+  border-radius: $base-radius;
+  background-color: var(--text-color);
+  color: var(--bg-color);
+
+  height: 350px;
+
+  svg {
+    width: 80px;
+    height: 80px;
+
+    path {
+      stroke: var(--bg-color);
+
+      &#fill {
+        fill: var(--bg-color);
+      }
+    }
+  }
+
+  @include on-tablet {
+    text-align: start;
+    justify-content: flex-start;
+    align-items: flex-start;
+    height: auto;
+
+    border-radius: 0;
+    background-color: var(--bg-color);
+    color: var(--text-color);
+
+    svg path {
+      stroke: var(--text-color);
+
+      &#fill {
+        fill: var(--text-color);
+      }
+    }
+  }
+}

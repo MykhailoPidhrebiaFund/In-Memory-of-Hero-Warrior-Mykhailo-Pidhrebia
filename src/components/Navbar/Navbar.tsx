@@ -16,6 +16,7 @@ export const Navbar: React.FC = () => {
   const [isOpen, setIsOpen] = useState(false);
 
   const toggleNav = () => setIsOpen((prev) => !prev);
+  const closeNav = () => setIsOpen(false); // new helper
 
   const scrollTo = (id: string) => {
     const el = document.getElementById(id);
@@ -31,7 +32,18 @@ export const Navbar: React.FC = () => {
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
 
+  useEffect(() => {
+    const handleResize = () => {
+      closeNav();
+    };
+
+    window.addEventListener('resize', handleResize);
+    return () => window.removeEventListener('resize', handleResize);
+  }, []);
+
   const navigateToSection = (id: string) => {
+    closeNav();
+
     if (location.pathname === '/' || location.pathname === '/home') {
       scrollTo(id);
     } else {
@@ -41,6 +53,7 @@ export const Navbar: React.FC = () => {
 
   useEffect(() => {
     const id = location.state?.scrollToId;
+
     if (id) {
       setTimeout(() => {
         const el = document.getElementById(id);
@@ -63,34 +76,47 @@ export const Navbar: React.FC = () => {
         'nav--hidden-on-scroll': !atTop,
         'nav--collapsed': isOpen,
         'nav--privacy-policy': location.pathname === '/privacy-policy',
+        'nav--about': location.pathname === '/about',
       })}
     >
-      <div className="nav__section" onClick={() => navigateToSection('header')}>
-        <BrandLogo />
-      </div>
+      <div className="nav__wrapper">
+        <div className="nav__section" onClick={() => navigateToSection('header')}>
+          <div className="nav__brand">
+            <BrandLogo />
+          </div>
+        </div>
 
-      <div className="nav__section">
-        <ul className="nav__list">
-          {navItems.map((item) => (
-            <li key={item.id} className="nav__item">
-              <button onClick={() => navigateToSection(item.id)} className="nav__link">
-                {item.label}
-              </button>
-            </li>
-          ))}
-        </ul>
+        <div className="nav__section">
+          <ul className="nav__list">
+            {navItems.map((item) => (
+              <li key={item.id} className="nav__item">
+                <button onClick={() => navigateToSection(item.id)} className="nav__link">
+                  {item.label}
+                </button>
+              </li>
+            ))}
+          </ul>
 
-        <Button onClick={() => navigate('/about')} type={BtnType.SECONDARY}>
-          Про фонд
-        </Button>
-      </div>
+          <div className="nav__about-btn-wrapper">
+            <Button
+              onClick={() => {
+                closeNav();
+                navigate('/about');
+              }}
+              type={BtnType.SECONDARY}
+            >
+              Про фонд
+            </Button>
+          </div>
+        </div>
 
-      <div className="nav__section">
-        <button className="nav__btn" onClick={toggleNav}>
-          <span></span>
-          <span></span>
-          <span></span>
-        </button>
+        <div className="nav__section">
+          <button className="nav__btn" onClick={toggleNav}>
+            <span></span>
+            <span></span>
+            <span></span>
+          </button>
+        </div>
       </div>
     </nav>
   );

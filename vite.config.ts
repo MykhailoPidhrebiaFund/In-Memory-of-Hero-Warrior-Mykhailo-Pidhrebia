@@ -1,8 +1,9 @@
 import { defineConfig } from 'vite';
 import react from '@vitejs/plugin-react';
+import svgr from 'vite-plugin-svgr';
 
 // https://vite.dev/config/
 export default defineConfig({
   base: '/In-Memory-of-Hero-Warrior-Mykhailo-Pidhrebia/',
-  plugins: [react()],
+  plugins: [react(), svgr()],
 });

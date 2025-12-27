@@ -23,18 +23,19 @@
     width: 100vw;
 
     @include on-desktop {
+      border-bottom-left-radius: $base-radius;
       width: 50vw;
     }
 
     background-position: center;
     background-repeat: no-repeat;
     background-size: cover;
-    background-image: url('./images/header.webp');
-    background-color: red;
+    background-image: url('/images/header.webp');
   }
 
   &__section {
     position: relative;
+    width: 100%;
     z-index: 2;
     padding-bottom: map.get($spacing, 'md');
 

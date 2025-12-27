@@ -17,13 +17,39 @@
     flex-direction: row;
   }
 
+  &__nav {
+    display: flex;
+    flex-direction: column;
+    gap: map.get($spacing, 'md');
+  }
+
   &__list {
+    display: flex;
+    flex-direction: column;
+    gap: map.get($spacing, 'sm');
+
     @include on-tablet {
       text-align: end;
+      align-items: flex-end;
     }
   }
 
-  &__link {
+  &__item {
+    display: flex;
+    align-items: center;
+    gap: map.get($spacing, '2xs');
+    word-break: break-all;
+
     @include secondary-text;
+
+    svg {
+      width: 16px;
+      height: 16px;
+
+      @include on-tablet {
+        width: 24px;
+        height: 24px;
+      }
+    }
   }
 }

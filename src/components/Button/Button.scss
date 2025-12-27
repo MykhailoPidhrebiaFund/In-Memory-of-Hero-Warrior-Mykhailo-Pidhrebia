@@ -2,7 +2,7 @@
 
 .btn {
   white-space: nowrap;
-  border-radius: 24px;
+  border-radius: $base-radius;
 
   transition:
     color $base-transition ease,

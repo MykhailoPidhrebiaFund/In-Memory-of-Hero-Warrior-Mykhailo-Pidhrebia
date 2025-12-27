@@ -1,9 +1,10 @@
 @use 'sass:map';
 
-$max-container-width: 1300px;
+$max-container-width: 1440px;
 $base-transition: 300ms;
 $base-font: SFPro, sans-serif;
 $secondary-font: Mak, sans-serif;
+$base-radius: 8px;
 
 $colors: (
   'midnight': #030317,
@@ -28,12 +29,13 @@ $spacing: (
   '4xl': 80px,
 );
 
+$section-gap-mobile: map.get($spacing, '2xl');
 $section-gap: map.get($spacing, '4xl');
 
 $typography: (
   'h1': (
     'font-weight': 300,
-    'font-size-mobile': 68px,
+    'font-size-mobile': 64px,
     'font-size-desktop': 128px,
     'line-height-mobile': 110%,
     'line-height-desktop': 110%,
@@ -50,7 +52,7 @@ $typography: (
   'h3': (
     'font-weight-mobile': 600,
     'font-weight-desktop': 600,
-    'font-size-mobile': 32px,
+    'font-size-mobile': 20px,
     'font-size-desktop': 32px,
     'line-height-mobile': 120%,
     'line-height-desktop': 120%,
@@ -58,7 +60,7 @@ $typography: (
   ),
   'h4': (
     'font-weight': 600,
-    'font-size-mobile': 24px,
+    'font-size-mobile': 16px,
     'font-size-desktop': 24px,
     'line-height-mobile': 120%,
     'line-height-desktop': 120%,
@@ -66,7 +68,7 @@ $typography: (
   ),
   'p': (
     'font-weight': 400,
-    'font-size-mobile': 20px,
+    'font-size-mobile': 16px,
     'font-size-desktop': 20px,
     'line-height-mobile': 140%,
     'line-height-desktop': 140%,
@@ -80,7 +82,8 @@ $typography: (
   ),
   'body': (
     'font-weight': 400,
-    'font-size': 20px,
+    'font-size-mobile': 16px,
+    'font-size-desktop': 20px,
     'line-height': 140%,
     'letter-spacing': 0%,
   ),

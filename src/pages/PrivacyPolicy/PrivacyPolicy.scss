@@ -5,8 +5,12 @@
 .policy {
   display: flex;
   flex-direction: column;
-  gap: map.get($spacing, '4xl');
   margin-top: 150px;
+  gap: $section-gap-mobile;
+
+  @include on-tablet {
+    gap: $section-gap;
+  }
 
   &__title {
     font-size: 36px;
