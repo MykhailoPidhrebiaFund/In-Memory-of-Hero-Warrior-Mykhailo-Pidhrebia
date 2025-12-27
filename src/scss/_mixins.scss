@@ -20,12 +20,12 @@
 }
 
 @mixin container {
-  padding-inline: map.get($spacing, 'sm');
+  padding-inline: $section-padding-mobile;
   max-width: $max-container-width;
   margin-inline: auto;
   width: 100%;
 
   @include on-tablet() {
-    padding-inline: map.get($spacing, '3xl');
+    padding-inline: $section-padding;
   }
 }

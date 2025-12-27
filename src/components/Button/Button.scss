@@ -1,4 +1,5 @@
 @use '../../scss/vars' as *;
+@use '../../scss/mixins' as *;
 
 .btn {
   white-space: nowrap;
@@ -10,10 +11,14 @@
     border-color $base-transition ease;
 
   &--primary {
-    padding-inline: 49px;
-    height: 48px;
     color: var(--btn-text-color);
     background-color: var(--btn-bg-color);
+
+    padding: 10px 50px;
+
+    @include on-tablet {
+      padding: 12px 56px;
+    }
 
     &:hover {
       color: var(--btn-text-hover-color);
@@ -27,12 +32,16 @@
   }
 
   &--secondary {
-    padding-inline: 16px;
-    height: 40px;
     border: 1px solid transparent;
     color: var(--btn-outline-text-color);
     background-color: var(--btn-outline-bg-color);
     border-color: var(--btn-outline-border-color);
+
+    padding: 8px 33px;
+
+    @include on-tablet {
+      padding: 10px 50px;
+    }
 
     &:hover {
       color: var(--btn-outline-text-hover-color);

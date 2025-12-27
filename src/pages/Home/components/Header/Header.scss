@@ -3,10 +3,26 @@
 @use '../../../../scss/mixins' as *;
 
 .header {
+  position: relative;
   display: flex;
   flex-direction: column;
   justify-content: flex-end;
   gap: 40px;
+
+  &::after {
+    content: '';
+
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    background: linear-gradient(to top, var(--bg-color) 0%, transparent 70%);
+
+    @include on-desktop {
+      background: none;
+    }
+  }
 
   @include on-desktop {
     gap: 195px;
@@ -14,6 +30,14 @@
 
   position: relative;
   height: 820px;
+
+  &__title {
+    text-align: center;
+
+    @include on-tablet {
+      text-align: start;
+    }
+  }
 
   &__img {
     position: absolute;
@@ -45,7 +69,11 @@
 
     display: flex;
     align-items: center;
-    justify-content: space-between;
+    justify-content: center;
+
+    @include on-desktop {
+      justify-content: space-between;
+    }
 
     &:last-child {
       flex-direction: column;
@@ -66,6 +94,50 @@
       flex-direction: column;
       gap: map.get($spacing, 'sm');
       max-width: 530px;
+    }
+
+    h2 {
+      font-size: 16px;
+      font-weight: 700;
+
+      @include on-tablet {
+        font-size: map.get(map.get($typography, 'h2'), 'font-size-desktop');
+      }
+    }
+
+    h4 {
+      font-size: 14px;
+
+      @include on-tablet {
+        font-size: map.get(map.get($typography, 'h4'), 'font-size-desktop');
+      }
+    }
+
+    &:last-child {
+      margin-left: auto;
+
+      @include on-desktop {
+        margin-left: none;
+      }
+
+      button {
+        &:first-child {
+          display: none;
+
+          @include on-desktop {
+            display: block;
+          }
+        }
+
+        &:last-child {
+          color: var(--text-color);
+          border-color: var(--text-color);
+
+          @include on-desktop {
+            display: none;
+          }
+        }
+      }
     }
   }
 }

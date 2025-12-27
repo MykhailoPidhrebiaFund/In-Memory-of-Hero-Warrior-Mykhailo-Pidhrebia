@@ -40,7 +40,7 @@ const PrivacyPolicyPage: React.FC = () => {
         </div>
 
         <div className="policy__btn-wrapper">
-          <Button onClick={() => navigate('/')}>на головну</Button>
+          <Button onClick={() => navigate('/')}>На головну</Button>
         </div>
       </div>
     </section>
