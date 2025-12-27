@@ -1,0 +1,65 @@
+@use 'sass:map';
+@use '../../../../scss/vars' as *;
+@use '../../../../scss/mixins' as *;
+
+.mission {
+  display: flex;
+  flex-direction: column;
+  gap: map.get($spacing, 'md');
+
+  &__texts {
+    display: flex;
+    flex-direction: column;
+    gap: map.get($spacing, 'md');
+  }
+
+  .mission__text--second-temp {
+    display: none;
+  }
+
+  @include on-tablet {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: map.get($spacing, 'md');
+    align-items: start;
+
+    .mission__text--first {
+      grid-column: 1;
+      grid-row: 1;
+    }
+
+    .mission__text--second-temp {
+      display: block;
+      grid-column: 1;
+      grid-row: 2;
+    }
+
+    .mission__img {
+      grid-column: 2;
+      grid-row: 1 / span 2;
+      max-width: 100%;
+      margin-left: auto;
+      height: auto;
+      justify-self: start;
+      align-self: start;
+    }
+
+    .mission__text--second {
+      display: none;
+    }
+  }
+
+  @include on-desktop {
+    .mission__img {
+      max-width: 540px;
+    }
+  }
+
+  p {
+    max-width: 100%;
+
+    @include on-tablet {
+      max-width: 650px;
+    }
+  }
+}

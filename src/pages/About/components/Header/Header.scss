@@ -1,0 +1,40 @@
+@use 'sass:map';
+@use '../../../../scss/vars' as *;
+@use '../../../../scss/mixins' as *;
+
+.about-header {
+  width: 100vw;
+
+  background-position: center bottom;
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-image: url('/images/about-header-mobile.webp');
+
+  @include on-tablet {
+    background-image: url('/images/about-header.webp');
+  }
+
+  &__wrapper {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    align-items: center;
+    height: 810px;
+    gap: 120px;
+
+    @include container;
+
+    @include on-tablet {
+      align-items: flex-start;
+      gap: map.get($spacing, 'md');
+      padding-bottom: map.get($spacing, 'xl');
+      background: none;
+    }
+  }
+
+  &__subtitle {
+    font-weight: 700;
+    max-width: 600px;
+  }
+}

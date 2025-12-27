@@ -1,7 +1,12 @@
 @use '../../scss/vars' as *;
+@use '../../scss/mixins' as *;
 
 .home {
   display: flex;
   flex-direction: column;
-  gap: $section-gap;
+  gap: $section-gap-mobile;
+
+  @include on-tablet {
+    gap: $section-gap;
+  }
 }

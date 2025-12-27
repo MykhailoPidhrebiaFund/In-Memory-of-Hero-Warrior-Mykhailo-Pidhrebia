@@ -20,7 +20,10 @@
 }
 
 @mixin container {
-  padding-inline: map.get($spacing, 'xl');
+  padding-inline: map.get($spacing, 'sm');
+  max-width: $max-container-width;
+  margin-inline: auto;
+  width: 100%;
 
   @include on-tablet() {
     padding-inline: map.get($spacing, '3xl');

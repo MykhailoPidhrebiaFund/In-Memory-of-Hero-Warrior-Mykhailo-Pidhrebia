@@ -25,7 +25,8 @@
     "clsx": "^2.1.1",
     "react": "^19.2.0",
     "react-dom": "^19.2.0",
-    "react-router-dom": "^7.11.0"
+    "react-router-dom": "^7.11.0",
+    "swiper": "^12.0.3"
   },
   "devDependencies": {
     "@eslint/css": "^0.14.1",
@@ -50,6 +51,7 @@
     "sass": "^1.97.1",
     "typescript": "~5.9.3",
     "typescript-eslint": "^8.50.1",
-    "vite": "^7.2.4"
+    "vite": "^7.2.4",
+    "vite-plugin-svgr": "^4.5.0"
   }
 }

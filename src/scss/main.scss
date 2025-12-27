@@ -14,3 +14,7 @@ body {
 section {
   @include container;
 }
+
+img {
+  border-radius: $base-radius;
+}
