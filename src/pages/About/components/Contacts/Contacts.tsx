@@ -4,7 +4,7 @@ import { contacts } from './data';
 
 export const Contacts: React.FC = () => {
   return (
-    <section className="contacts">
+    <section className="contacts" id='contacts'>
       <h3 className="contacts__title">Контакти:</h3>
 
       <ul className="contacts__list">

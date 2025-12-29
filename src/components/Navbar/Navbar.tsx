@@ -3,64 +3,32 @@ import { useLocation, useNavigate } from 'react-router';
 import { BrandLogo } from '../BrandLogo';
 import { BtnType, Button } from '../Button';
 import { useEffect, useState } from 'react';
+import { useAnchorNavigation } from '../../hooks';
 import clsx from 'clsx';
 import './Navbar.scss';
-
-const DELAY_TO_SCROLL = 200;
 
 export const Navbar: React.FC = () => {
   const navigate = useNavigate();
   const location = useLocation();
+  const { goToAnchor } = useAnchorNavigation();
 
   const [atTop, setAtTop] = useState(true);
   const [isOpen, setIsOpen] = useState(false);
 
   const toggleNav = () => setIsOpen((prev) => !prev);
-  const closeNav = () => setIsOpen(false); // new helper
-
-  const scrollTo = (id: string) => {
-    const el = document.getElementById(id);
-    el?.scrollIntoView({ behavior: 'smooth' });
-  };
+  const closeNav = () => setIsOpen(false);
 
   useEffect(() => {
-    const handleScroll = () => {
-      setAtTop(window.scrollY === 0);
-    };
-
+    const handleScroll = () => setAtTop(window.scrollY === 0);
     window.addEventListener('scroll', handleScroll);
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
 
   useEffect(() => {
-    const handleResize = () => {
-      closeNav();
-    };
-
+    const handleResize = () => closeNav();
     window.addEventListener('resize', handleResize);
     return () => window.removeEventListener('resize', handleResize);
   }, []);
-
-  const navigateToSection = (id: string) => {
-    closeNav();
-
-    if (location.pathname === '/' || location.pathname === '/home') {
-      scrollTo(id);
-    } else {
-      navigate('/', { state: { scrollToId: id } });
-    }
-  };
-
-  useEffect(() => {
-    const id = location.state?.scrollToId;
-
-    if (id) {
-      setTimeout(() => {
-        const el = document.getElementById(id);
-        el?.scrollIntoView({ behavior: 'smooth' });
-      }, DELAY_TO_SCROLL);
-    }
-  }, [location]);
 
   const navItems = [
     { id: 'childhood', label: 'Дитинство' },
@@ -80,7 +48,7 @@ export const Navbar: React.FC = () => {
       })}
     >
       <div className="nav__wrapper">
-        <div className="nav__section" onClick={() => navigateToSection('header')}>
+        <div className="nav__section" onClick={() => goToAnchor({ path: '/', anchor: 'header' })}>
           <div className="nav__brand">
             <BrandLogo />
           </div>
@@ -90,7 +58,13 @@ export const Navbar: React.FC = () => {
           <ul className="nav__list">
             {navItems.map((item) => (
               <li key={item.id} className="nav__item">
-                <button onClick={() => navigateToSection(item.id)} className="nav__link">
+                <button
+                  className="nav__link"
+                  onClick={() => {
+                    closeNav();
+                    goToAnchor({ path: '/', anchor: item.id });
+                  }}
+                >
                   {item.label}
                 </button>
               </li>

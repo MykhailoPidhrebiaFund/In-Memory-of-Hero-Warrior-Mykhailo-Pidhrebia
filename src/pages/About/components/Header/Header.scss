@@ -2,15 +2,17 @@
 @use '../../../../scss/vars' as *;
 @use '../../../../scss/mixins' as *;
 
+$small-tablet-width: 600px;
+
 .about-header {
   width: 100vw;
 
-  background-position: center bottom;
+  background-position: center 30%;
   background-repeat: no-repeat;
   background-size: cover;
   background-image: url('/images/about-header-mobile.webp');
 
-  @include on-tablet {
+  @media (min-width: $small-tablet-width) {
     background-image: url('/images/about-header.webp');
   }
 
@@ -25,7 +27,7 @@
 
     @include container;
 
-    @include on-tablet {
+    @media (min-width: $small-tablet-width) {
       align-items: flex-start;
       gap: map.get($spacing, 'md');
       padding-bottom: map.get($spacing, 'xl');

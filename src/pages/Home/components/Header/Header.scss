@@ -17,19 +17,19 @@
     bottom: 0;
     left: 0;
     right: 0;
-    background: linear-gradient(to top, var(--bg-color) 0%, transparent 70%);
+    background: linear-gradient(to top, var(--bg-color) 0%, transparent 60%);
 
     @include on-desktop {
       background: none;
     }
   }
 
+  position: relative;
+  height: 920px;
+
   @include on-desktop {
     gap: 195px;
   }
-
-  position: relative;
-  height: 820px;
 
   &__title {
     text-align: center;
@@ -46,26 +46,27 @@
     height: 100%;
     width: 100vw;
 
-    @include on-desktop {
-      border-bottom-left-radius: $base-radius;
-      width: 50vw;
-    }
-
     background-position: center;
     background-repeat: no-repeat;
     background-size: cover;
     background-image: url('/images/header.webp');
+
+    @include on-tablet {
+      background-image: url('/images/header-tablet.webp');
+      background-position: center top;
+    }
+
+    @include on-desktop {
+      border-bottom-left-radius: $base-radius;
+      background-image: url('/images/header.webp');
+      width: 50vw;
+    }
   }
 
   &__section {
     position: relative;
     width: 100%;
     z-index: 2;
-    padding-bottom: map.get($spacing, 'md');
-
-    @include on-desktop {
-      padding-bottom: 0;
-    }
 
     display: flex;
     align-items: center;
@@ -76,9 +77,8 @@
     }
 
     &:last-child {
-      flex-direction: column;
       gap: map.get($spacing, 'sm');
-      align-items: flex-start;
+      align-items: flex-end;
 
       @include on-desktop {
         gap: 0;
