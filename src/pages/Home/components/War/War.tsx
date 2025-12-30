@@ -4,6 +4,7 @@ import { Button } from '../../../../components/Button';
 import { useNavigate } from 'react-router';
 import { GallerySwiper } from '../GallerySwiper';
 import { warPhotos } from './data';
+import { VideoPlayer } from '../../../../components/VideoPlayer';
 
 export const War: React.FC = () => {
   const navigate = useNavigate();
@@ -15,7 +16,14 @@ export const War: React.FC = () => {
       </div>
 
       <div className="war__section">
-        <img src="./images/war1.webp" alt="War photo #1" />
+        <div className="war__video">
+          <VideoPlayer
+            videoSRC="https://www.youtube.com/embed/jONIoKyaauo"
+            thumbnailSRC="./images/war1.webp"
+            alt="Відео про військовий період"
+            position="left top"
+          />
+        </div>
 
         <div className="war__text-content">
           <p>

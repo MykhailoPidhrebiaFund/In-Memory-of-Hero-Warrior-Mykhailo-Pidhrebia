@@ -49,24 +49,3 @@ export const Army: React.FC = () => {
     </section>
   );
 };
-
-/*
-can u redo grid to make @on-tablet {
-  first img take first row first columb
-  second img take first row second col
-  third img take first row third col
-
-  first text should take second row and all cols
-  second text should take third row and all cols
-  thid text should take forth row and all cols
-}
-
-and on mobile (mobile first) it should be like this order {
-  first text
-  first img
-  second text
-  second img
-  third text
-  third img
-}
-*/

@@ -34,6 +34,10 @@
     }
   }
 
+  &__link {
+    color: var(--text-color);
+  }
+
   &__item {
     display: flex;
     align-items: center;

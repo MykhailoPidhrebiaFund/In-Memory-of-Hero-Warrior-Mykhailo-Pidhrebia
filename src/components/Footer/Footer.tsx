@@ -1,10 +1,12 @@
 import type React from 'react';
 import { BrandLogo } from '../BrandLogo';
 import { NavLink } from 'react-router';
-import { contacts } from '../../pages/About/components/Contacts';
 import './Footer.scss';
+import { useAnchorNavigation } from '../../hooks';
 
 export const Footer: React.FC = () => {
+  const { goToAnchor } = useAnchorNavigation();
+
   return (
     <footer className="footer">
       <div className="footer__section">
@@ -31,18 +33,21 @@ export const Footer: React.FC = () => {
                 Політика конфідеційності
               </NavLink>
             </li>
-          </ul>
 
-          <ul className="footer__list">
-            {contacts.map((contact, index) => (
-              <li key={index} className="footer__item">
-                <contact.icon />
-
-                <a href={`${contact.type === 'phone' ? 'tel:' : 'mailto:'}${contact.content}`}>
-                  {contact.content}
-                </a>
-              </li>
-            ))}
+            <li className="footer__item">
+              <button
+                type="button"
+                className="footer__link footer__link--button"
+                onClick={() =>
+                  goToAnchor({
+                    path: '/about',
+                    anchor: 'contacts',
+                  })
+                }
+              >
+                Контакти
+              </button>
+            </li>
           </ul>
         </nav>
       </div>

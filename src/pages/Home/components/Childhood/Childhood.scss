@@ -8,7 +8,6 @@
   gap: map.get($spacing, 'xl');
 
   &__img {
-    margin-bottom: map.get($spacing, 'md');
     width: 100%;
 
     @include on-tablet {
@@ -21,6 +20,10 @@
   }
 
   &__section {
+    display: flex;
+    flex-direction: column;
+    gap: map.get($spacing, 'md');
+
     &:last-child {
       .childhood__text-wrapper {
         @include on-tablet {

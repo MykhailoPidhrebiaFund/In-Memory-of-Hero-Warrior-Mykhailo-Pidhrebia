@@ -1,5 +1,6 @@
 import type React from 'react';
 import './Childhood.scss';
+import { VideoPlayer } from '../../../../components/VideoPlayer';
 
 export const Childhood: React.FC = () => {
   return (
@@ -31,10 +32,10 @@ export const Childhood: React.FC = () => {
       </div>
 
       <div className="childhood__section">
-        <img
-          className="childhood__img childhood__img--wide"
-          src="./images/childhood-wide.webp"
-          alt="Childhood photo №2"
+        <VideoPlayer
+          videoSRC="https://www.youtube.com/embed/pV_8E_83cqQ"
+          thumbnailSRC="./images/childhood-wide.webp"
+          alt="Відео про дитинство"
         />
 
         <div className="childhood__text-wrapper">

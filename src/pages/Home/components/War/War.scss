@@ -26,13 +26,6 @@
           }
         }
       }
-
-      @include on-tablet {
-        img {
-          margin-left: auto;
-          width: 50%;
-        }
-      }
     }
 
     &:nth-child(3),
