@@ -22,7 +22,7 @@
   &__section {
     display: flex;
     flex-direction: column;
-    gap: map.get($spacing, "md");
+    gap: map.get($spacing, 'md');
 
     &:last-child {
       .childhood__text-wrapper {

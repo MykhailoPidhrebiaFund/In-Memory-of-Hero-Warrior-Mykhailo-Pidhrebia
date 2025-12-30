@@ -21,7 +21,7 @@ export const War: React.FC = () => {
             videoSRC="https://www.youtube.com/embed/jONIoKyaauo"
             thumbnailSRC="./images/war1.webp"
             alt="Відео про військовий період"
-            position='left top'
+            position="left top"
           />
         </div>
 
