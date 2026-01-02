@@ -1,14 +1,10 @@
 import type React from 'react';
-import './War.scss';
-import { Button } from '../../../../components/Button';
-import { useNavigate } from 'react-router';
 import { GallerySwiper } from '../GallerySwiper';
 import { warPhotos } from './data';
 import { VideoPlayer } from '../../../../components/VideoPlayer';
+import './War.scss';
 
 export const War: React.FC = () => {
-  const navigate = useNavigate();
-
   return (
     <div id="war" className="war">
       <div className="war__section">
@@ -79,10 +75,6 @@ export const War: React.FC = () => {
 
         <div className="war__swiper">
           <GallerySwiper images={warPhotos.slice(3)} />
-        </div>
-
-        <div className="war__btn">
-          <Button onClick={() => navigate('/about')}>Про фонд</Button>
         </div>
       </div>
     </div>

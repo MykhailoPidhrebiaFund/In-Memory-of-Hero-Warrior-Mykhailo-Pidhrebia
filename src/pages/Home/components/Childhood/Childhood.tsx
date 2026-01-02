@@ -9,7 +9,7 @@ export const Childhood: React.FC = () => {
         <h3 className="childhood__title">Дитинство</h3>
       </div>
 
-      <div className="childhood__section">
+      <div className="childhood__section childhood__section--main">
         <img className="childhood__img" src="./images/childhood.webp" alt="Childhood photo №1" />
 
         <div className="childhood__text-wrapper">
@@ -39,7 +39,7 @@ export const Childhood: React.FC = () => {
         />
 
         <div className="childhood__text-wrapper">
-          <p>
+          <p className="childhood__text childhood__text--start">
             Змалечку Михайлик любив слухати легенди, перекази, історичні оповіді, що пізніше
             переросло в неймовірне захоплення історією України та юриспруденцією. Тричі брав участь
             у Всеукраїнському історичному конкурсі «Непізнана історія мого краю», Всеукраїнській

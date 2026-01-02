@@ -5,7 +5,19 @@ export const Army: React.FC = () => {
   return (
     <section id="army" className="army">
       <div className="army__section">
-        <h3 className="army__title">Армія</h3>
+        <h3 className="army__title">Військо</h3>
+      </div>
+
+      <div className="army__section army__section--emblem">
+        <img
+          className="army__img army__img--emblem"
+          src="./images/emblem.webp"
+          alt="Герб військо"
+        />
+
+        <h2 className="army__subtitle">
+          Михайло завжди вважав, що воля вирішує! <br /> Тому не дивно, що став одним із Рейнджерів.
+        </h2>
       </div>
 
       <div className="army__section">

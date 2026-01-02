@@ -37,10 +37,10 @@
     background-color: var(--btn-outline-bg-color);
     border-color: var(--btn-outline-border-color);
 
-    padding: 8px 33px;
+    padding: 8px 32px;
 
     @include on-tablet {
-      padding: 10px 50px;
+      padding: 10px 40px;
     }
 
     &:hover {
