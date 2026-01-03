@@ -21,9 +21,9 @@ export const VerseList: React.FC<Props> = ({ verses }) => {
           <article className="verse-list__verse">
             <div className="verse-list__verse-content">
               {verse.paragraphs.map((paragraph, index) => (
-                <p key={index} className="verse-list__paragraph">
-                  <pre>{trimParagraph(paragraph)}</pre>
-                </p>
+                <pre key={index} className="verse-list__paragraph">
+                  {trimParagraph(paragraph)}
+                </pre>
               ))}
             </div>
 

@@ -5,14 +5,25 @@
 .research-work-card {
   display: flex;
   flex-direction: column;
+  justify-content: center;
+  align-items: center;
   gap: map.get($spacing, 'md');
   width: 100%;
+  min-height: 300px;
   padding: map.get($spacing, 'sm') map.get($spacing, 'md');
   border: 1px solid var(--text-color);
   border-radius: $base-radius;
 
   @include on-tablet {
     flex-direction: row;
+  }
+
+  &__poster {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: map.get($spacing, 'md');
   }
 
   &__info {
