@@ -21,7 +21,7 @@ export const ResearchWorkCard: React.FC<Props> = ({ work }) => {
             pageNumber={1}
             renderTextLayer={false}
             renderAnnotationLayer={false}
-            width={window.innerWidth <= 768 ? 200 : 410}
+            height={window.innerWidth <= 768 ? 300 : 410}
           />
         </Document>
       </div>
