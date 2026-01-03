@@ -9,13 +9,42 @@
 
   &__img {
     width: 100%;
+  }
 
-    @include on-tablet {
-      width: 420px;
+  &__text-wrapper {
+    @include grid;
+    gap: map.get($spacing, 'md');
+
+    flex-direction: column;
+
+    p {
+      grid-column: 1 / -1;
     }
 
-    &--wide {
-      width: 100%;
+    @include on-tablet {
+      flex-direction: row;
+
+      p {
+        &:first-child {
+          grid-column: span 3;
+        }
+
+        &:last-child {
+          grid-column: span 3;
+        }
+      }
+    }
+
+    @include on-desktop {
+      p {
+        &:first-child {
+          grid-column: span 4;
+        }
+
+        &:last-child {
+          grid-column: -1 / -7;
+        }
+      }
     }
   }
 
@@ -24,40 +53,32 @@
     flex-direction: column;
     gap: map.get($spacing, 'md');
 
-    &:last-child {
-      .childhood__text-wrapper {
+    &--main {
+      @include grid;
+
+      & > * {
+        grid-column: 1 / -1;
+      }
+
+      img {
         @include on-tablet {
-          p {
-            max-width: 650px;
-          }
+          grid-column: span 3;
+        }
+
+        @include on-desktop {
+          grid-column: span 4;
         }
       }
     }
-  }
 
-  &__text-wrapper {
-    display: flex;
-    justify-content: space-between;
-    gap: map.get($spacing, 'md');
-
-    flex-direction: column;
-
-    p {
-      width: 100%;
-    }
-
-    @include on-tablet {
-      flex-direction: row;
-    }
-
-    @include on-tablet {
+    &:nth-child(3) {
       p {
-        &:first-child {
-          max-width: 420px;
+        @include on-tablet {
+          grid-column: span 5;
         }
 
-        &:last-child {
-          max-width: 650px;
+        @include on-desktop {
+          grid-column: span 6;
         }
       }
     }

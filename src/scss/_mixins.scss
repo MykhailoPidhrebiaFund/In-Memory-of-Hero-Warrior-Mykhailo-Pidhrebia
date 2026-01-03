@@ -13,10 +13,20 @@
   }
 }
 
-@mixin grid($cols) {
+@mixin grid {
+  --cols: 2;
+
   display: grid;
   gap: map.get($spacing, 'md');
-  grid-template-columns: repeat($cols, minmax(0, 1fr));
+  grid-template-columns: repeat(var(--cols), 1fr);
+
+  @include on-tablet {
+    --cols: 6;
+  }
+
+  @include on-desktop {
+    --cols: 12;
+  }
 }
 
 @mixin container {

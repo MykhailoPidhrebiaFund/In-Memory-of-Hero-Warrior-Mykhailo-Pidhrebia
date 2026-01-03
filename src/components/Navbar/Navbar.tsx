@@ -32,8 +32,8 @@ export const Navbar: React.FC = () => {
 
   const navItems = [
     { id: 'childhood', label: 'Дитинство' },
-    { id: 'studentship', label: 'Студенство' },
-    { id: 'army', label: 'Армія' },
+    { id: 'studentship', label: 'Студентство' },
+    { id: 'army', label: 'Військо' },
     { id: 'war', label: 'Війна' },
   ];
 

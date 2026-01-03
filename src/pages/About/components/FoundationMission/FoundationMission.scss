@@ -48,18 +48,4 @@
       display: none;
     }
   }
-
-  @include on-desktop {
-    .mission__img {
-      max-width: 540px;
-    }
-  }
-
-  p {
-    max-width: 100%;
-
-    @include on-tablet {
-      max-width: 650px;
-    }
-  }
 }

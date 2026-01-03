@@ -18,7 +18,7 @@ export const Header: React.FC = () => {
 
       <section className="header__section">
         <div className="header__subsection">
-          <h2>“У всіх колись бувають помилки, але це ще не означає, що це кінець.”</h2>
+          <h2>“У всіх колись бувають помилки, але це не означає, що вже кінець.”</h2>
           <h4>-Михайло.</h4>
         </div>
 

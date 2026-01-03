@@ -1,0 +1,32 @@
+@use 'sass:map';
+@use '../../../../scss/vars' as *;
+@use '../../../../scss/mixins' as *;
+
+.verse-list {
+  display: flex;
+  flex-direction: column;
+  gap: map.get($spacing, 'xl');
+
+  &__verse {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+
+    @include on-tablet {
+      gap: 0;
+    }
+  }
+
+  &__verse-content {
+    @include on-tablet {
+      @include grid;
+      grid-template-columns: repeat(auto-fit, minmax(33.333%, 1fr));
+    }
+  }
+
+  &__author {
+    @include on-tablet {
+      text-align: end;
+    }
+  }
+}

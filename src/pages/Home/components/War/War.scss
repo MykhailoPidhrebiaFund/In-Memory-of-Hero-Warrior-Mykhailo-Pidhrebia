@@ -16,15 +16,7 @@
 
     &:nth-child(2) {
       .war__text-content {
-        display: flex;
-        align-items: flex-start;
         gap: map.get($spacing, '2xl');
-
-        @include on-tablet {
-          p {
-            max-width: calc(50% - map.get($spacing, 'md'));
-          }
-        }
       }
     }
 
@@ -37,34 +29,52 @@
           padding-right: 0;
         }
       }
-
-      padding-right: 0;
-
-      @include on-tablet {
-        padding-right: $section-padding;
-
-        p {
-          max-width: 650px;
-        }
-      }
     }
 
     &:nth-child(4) {
-      @include on-tablet {
-        flex-direction: row;
-        justify-content: space-between;
+      @include grid;
 
-        p {
-          max-width: 500px;
+      p {
+        grid-column: -1 / 1;
+
+        @include on-tablet {
+          grid-column: span 2;
+        }
+
+        @include on-desktop {
+          grid-column: span 5;
+        }
+      }
+
+      .war__quotes {
+        grid-column: -1 / 1;
+
+        @include on-tablet {
+          grid-column: span 4;
+        }
+
+        @include on-desktop {
+          grid-column: -1 / -7;
         }
       }
     }
   }
 
   &__text-content {
-    display: flex;
-    flex-direction: column;
+    @include grid;
     gap: map.get($spacing, 'md');
+
+    p {
+      grid-column: 1 / -1;
+
+      @include on-tablet {
+        grid-column: 1 / span 4;
+      }
+
+      @include on-desktop {
+        grid-column: 1 / span 6;
+      }
+    }
   }
 
   &__quotes {

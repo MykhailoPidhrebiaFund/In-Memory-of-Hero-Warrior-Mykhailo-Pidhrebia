@@ -80,6 +80,8 @@
       gap: map.get($spacing, 'sm');
       align-items: flex-end;
 
+      @include grid;
+
       @include on-desktop {
         gap: 0;
         flex-direction: row;
@@ -93,7 +95,8 @@
       display: flex;
       flex-direction: column;
       gap: map.get($spacing, 'sm');
-      max-width: 530px;
+
+      grid-column: span 5;
     }
 
     h2 {
@@ -115,6 +118,8 @@
 
     &:last-child {
       margin-left: auto;
+      grid-column: -1;
+      justify-self: end;
 
       @include on-desktop {
         margin-left: none;
