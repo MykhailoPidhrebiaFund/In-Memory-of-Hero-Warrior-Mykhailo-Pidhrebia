@@ -1,0 +1,86 @@
+@use 'sass:map';
+@use '../../../../scss/vars' as *;
+@use '../../../../scss/mixins' as *;
+
+.childhood {
+  display: flex;
+  flex-direction: column;
+  gap: map.get($spacing, 'xl');
+
+  &__img {
+    width: 100%;
+  }
+
+  &__text-wrapper {
+    @include grid;
+    gap: map.get($spacing, 'md');
+
+    flex-direction: column;
+
+    p {
+      grid-column: 1 / -1;
+    }
+
+    @include on-tablet {
+      flex-direction: row;
+
+      p {
+        &:first-child {
+          grid-column: span 3;
+        }
+
+        &:last-child {
+          grid-column: span 3;
+        }
+      }
+    }
+
+    @include on-desktop {
+      p {
+        &:first-child {
+          grid-column: span 4;
+        }
+
+        &:last-child {
+          grid-column: -1 / -7;
+        }
+      }
+    }
+  }
+
+  &__section {
+    display: flex;
+    flex-direction: column;
+    gap: map.get($spacing, 'md');
+
+    &--main {
+      @include grid;
+
+      & > * {
+        grid-column: 1 / -1;
+      }
+
+      img {
+        @include on-tablet {
+          grid-column: span 3;
+        }
+
+        @include on-desktop {
+          grid-column: span 4;
+        }
+      }
+    }
+
+    &:nth-child(3) {
+      p {
+        @include on-tablet {
+          grid-column: span 5;
+        }
+
+        @include on-desktop {
+          grid-column: span 6;
+        }
+      }
+    }
+  }
+}

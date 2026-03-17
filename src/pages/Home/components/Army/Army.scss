@@ -1,0 +1,100 @@
+@use 'sass:map';
+@use '../../../../scss/vars' as *;
+@use '../../../../scss/mixins' as *;
+
+.army {
+  display: flex;
+  flex-direction: column;
+  gap: map.get($spacing, 'xl');
+
+  &__img {
+    width: 100%;
+  }
+
+  @include on-tablet {
+    &__section {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: map.get($spacing, 'lg');
+
+      &:last-child {
+        @include grid;
+      }
+    }
+
+    &__img {
+      &__first {
+        grid-column: 1 / 2;
+        grid-row: 1;
+      }
+
+      &--second {
+        grid-column: 2 / 3;
+        grid-row: 1;
+      }
+
+      &--third {
+        grid-column: 3 / 4;
+        grid-row: 1;
+      }
+
+      @include on-tablet {
+        grid-column: span 2;
+      }
+
+      @include on-desktop {
+        grid-column: span 4;
+      }
+    }
+
+    &__text {
+      grid-column: 1 / -1;
+
+      @include on-tablet {
+        grid-column: span 4;
+      }
+
+      @include on-desktop {
+        grid-column: span 6;
+      }
+
+      &--first {
+        grid-row: 2;
+      }
+
+      &--second {
+        grid-row: 3;
+      }
+
+      &--third {
+        grid-row: 4;
+      }
+    }
+  }
+
+  &__section {
+    display: flex;
+    flex-direction: column;
+    gap: map.get($spacing, 'md');
+
+    &--emblem {
+      @include grid;
+
+      align-items: center;
+      font-family: $secondary-font;
+
+      .army__img,
+      .army__subtitle {
+        grid-column: 1 / -1;
+
+        @include on-tablet {
+          grid-column: span 3;
+        }
+
+        @include on-desktop {
+          grid-column: span 6;
+        }
+      }
+    }
+  }
+}

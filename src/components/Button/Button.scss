@@ -1,0 +1,58 @@
+@use '../../scss/vars' as *;
+@use '../../scss/mixins' as *;
+
+.btn {
+  white-space: nowrap;
+  border-radius: $base-radius;
+
+  transition:
+    color $base-transition ease,
+    background-color $base-transition ease,
+    border-color $base-transition ease;
+
+  &--primary {
+    color: var(--btn-text-color);
+    background-color: var(--btn-bg-color);
+
+    padding: 10px 50px;
+
+    @include on-tablet {
+      padding: 12px 56px;
+    }
+
+    &:hover {
+      color: var(--btn-text-hover-color);
+      background-color: var(--btn-bg-hover-color);
+    }
+
+    &:active {
+      color: var(--btn-text-active-color);
+      background-color: var(--btn-bg-active-color);
+    }
+  }
+
+  &--secondary {
+    border: 1px solid transparent;
+    color: var(--btn-outline-text-color);
+    background-color: var(--btn-outline-bg-color);
+    border-color: var(--btn-outline-border-color);
+
+    padding: 8px 32px;
+
+    @include on-tablet {
+      padding: 10px 40px;
+    }
+
+    &:hover {
+      color: var(--btn-outline-text-hover-color);
+      background-color: var(--btn-outline-bg-hover-color);
+      border-color: var(--btn-outline-border-hover-color);
+    }
+
+    &:active {
+      color: var(--btn-outline-text-active-color);
+      background-color: var(--btn-outline-bg-active-color);
+      border-color: var(--btn-outline-border-active-color);
+    }
+  }
+}

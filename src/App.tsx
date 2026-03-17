@@ -1,21 +1,22 @@
 import { Outlet } from 'react-router-dom';
+import { Navbar } from './components/Navbar';
+import { Footer } from './components/Footer';
+import { ScrollToTop } from './components/ScrollToTop';
 
 function App() {
   return (
     <>
-      <p>Navbar</p>
+      <Navbar />
+
+      <ScrollToTop />
 
       <main>
-        <p>Content</p>
-
-
-        
         <Outlet />
       </main>
 
-      <p>Footer</p>
+      <Footer />
     </>
   );
 }
 
-export default App
+export default App;

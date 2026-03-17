@@ -1,0 +1,255 @@
+@use 'sass:map';
+@use '../../scss/vars' as *;
+@use '../../scss/mixins' as *;
+@use '../../scss/typography' as *;
+
+@mixin glass-effect {
+  background-color: #030317a6;
+  -webkit-backdrop-filter: blur(6px);
+  backdrop-filter: blur(6px);
+}
+
+.nav {
+  transition:
+    -webkit-backdrop-filter $base-transition ease,
+    backdrop-filter $base-transition ease,
+    opacity $base-transition ease,
+    transform $base-transition ease;
+
+  position: fixed;
+  z-index: 5;
+  top: 0;
+  left: 0;
+  right: 0;
+  padding-block: map.get($spacing, 'md');
+
+  color: var(--nav-text-color);
+
+  &__brand {
+    color: var(--bg-color);
+
+    @include on-desktop {
+      color: var(--text-color);
+    }
+  }
+
+  &__wrapper {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+    @include container;
+  }
+
+  &__section {
+    display: flex;
+    align-items: center;
+    gap: map.get($spacing, 'sm');
+
+    &:nth-child(2) {
+      gap: map.get($spacing, '2xl');
+
+      position: absolute;
+      top: 100%;
+      display: none;
+      flex-direction: column;
+
+      @include on-desktop {
+        gap: map.get($spacing, 'sm');
+
+        position: static;
+        display: flex;
+        flex-direction: row;
+      }
+    }
+
+    &:nth-child(3) {
+      @include on-desktop {
+        display: none;
+      }
+    }
+  }
+
+  &__list {
+    display: flex;
+    flex-direction: column;
+    gap: map.get($spacing, 'md');
+
+    @include on-desktop {
+      gap: map.get($spacing, 'sm');
+      flex-direction: row;
+    }
+  }
+
+  &__item {
+    padding: map.get($spacing, 'xs') map.get($spacing, 'sm');
+
+    &:last-child {
+      @include on-desktop {
+        transition: border-color $base-transition ease;
+        border-right: 1px solid var(--bg-color);
+      }
+    }
+
+    @include on-desktop {
+      padding-left: map.get($spacing, 'sm');
+    }
+  }
+
+  &__link {
+    transition: color $base-transition ease;
+    @include secondary-text;
+  }
+
+  &__btn {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+
+    width: 24px;
+    height: 16px;
+
+    span {
+      width: 100%;
+      height: 2.5px;
+      border-radius: 1.25px;
+      background-color: var(--bg-color);
+      transition: transform $base-transition ease;
+    }
+  }
+
+  &--privacy-policy {
+    .nav__link,
+    .nav__brand {
+      color: var(--nav-text-color);
+    }
+
+    .nav__btn span {
+      background-color: var(--nav-text-color);
+    }
+
+    button,
+    .nav__item {
+      color: var(--nav-text-color);
+      border-color: var(--nav-text-color);
+    }
+  }
+
+  &--about {
+    .nav__brand {
+      color: var(--bg-color);
+    }
+
+    .nav__btn span {
+      background-color: var(--bg-color);
+    }
+
+    @include on-desktop {
+      .nav__brand {
+        color: var(--text-color);
+      }
+
+      button,
+      .nav__item {
+        color: var(--nav-text-color);
+        border-color: var(--nav-text-color);
+      }
+    }
+  }
+
+  &--hidden-on-scroll {
+    @include glass-effect;
+
+    .nav__link {
+      color: var(--nav-text-color);
+    }
+
+    .nav__item {
+      border-color: var(--nav-text-color);
+    }
+
+    button {
+      color: var(--nav-text-color);
+      border-color: var(--nav-text-color);
+    }
+
+    .nav__brand {
+      color: var(--nav-text-color);
+    }
+
+    .nav__btn span {
+      background-color: var(--nav-text-color);
+    }
+
+    // opacity: 0;
+    // transform: translateY(-10px);
+
+    // &:hover {
+    //   opacity: 1;
+    //   transform: translateY(0);
+    // }
+  }
+
+  &--visible {
+    opacity: 1;
+    transform: translateY(0);
+  }
+
+  &--collapsed {
+    background-color: var(--bg-color);
+    color: var(--text-color);
+
+    .nav__brand {
+      color: var(--text-color);
+    }
+
+    .nav__btn {
+      span {
+        position: absolute;
+        top: 50%;
+        background-color: var(--nav-text-color);
+
+        &:nth-child(1) {
+          transform: translateY(-50%) rotate(45deg);
+        }
+
+        &:nth-child(2) {
+          display: none;
+        }
+
+        &:nth-child(3) {
+          transform: translateY(-50%) rotate(-45deg);
+        }
+      }
+    }
+
+    .nav__section:nth-child(2) {
+      background-color: var(--bg-color);
+      width: 100%;
+      height: 100vh;
+      left: 0;
+
+      display: flex;
+      align-items: flex-start;
+
+      @include container;
+
+      padding-top: 105px;
+      padding-bottom: map.get($spacing, 'xl');
+    }
+
+    .nav__link {
+      color: var(--nav-text-color);
+    }
+
+    .nav__item {
+      border-color: var(--nav-text-color);
+    }
+
+    button {
+      color: var(--nav-text-color);
+      border-color: var(--nav-text-color);
+    }
+  }
+}

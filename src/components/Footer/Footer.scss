@@ -1,0 +1,59 @@
+@use 'sass:map';
+@use '../../scss/vars' as *;
+@use '../../scss/mixins' as *;
+@use '../../scss/typography' as *;
+
+.footer {
+  display: flex;
+  flex-direction: column;
+  row-gap: map.get($spacing, 'md');
+  justify-content: space-between;
+  padding-block: map.get($spacing, 'xl');
+  margin-top: map.get($spacing, '4xl');
+
+  @include container;
+
+  @include on-tablet {
+    flex-direction: row;
+  }
+
+  &__nav {
+    display: flex;
+    flex-direction: column;
+    gap: map.get($spacing, 'md');
+  }
+
+  &__list {
+    display: flex;
+    flex-direction: column;
+    gap: map.get($spacing, 'sm');
+
+    @include on-tablet {
+      text-align: end;
+      align-items: flex-end;
+    }
+  }
+
+  &__link {
+    color: var(--text-color);
+  }
+
+  &__item {
+    display: flex;
+    align-items: center;
+    gap: map.get($spacing, '2xs');
+    word-break: break-all;
+
+    @include secondary-text;
+
+    svg {
+      width: 16px;
+      height: 16px;
+
+      @include on-tablet {
+        width: 24px;
+        height: 24px;
+      }
+    }
+  }
+}

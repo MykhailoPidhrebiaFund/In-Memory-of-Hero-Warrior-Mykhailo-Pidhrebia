@@ -1,0 +1,148 @@
+@use 'sass:map';
+@use '../../../../scss/vars' as *;
+@use '../../../../scss/mixins' as *;
+
+.header {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  gap: 40px;
+
+  &::after {
+    content: '';
+
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    background: linear-gradient(to top, var(--bg-color) 0%, transparent 60%);
+
+    @include on-desktop {
+      background: none;
+    }
+  }
+
+  position: relative;
+  height: 920px;
+
+  @include on-desktop {
+    gap: 195px;
+  }
+
+  &__title {
+    text-align: center;
+
+    @include on-tablet {
+      text-align: start;
+    }
+  }
+
+  &__img {
+    position: absolute;
+    top: 0;
+    right: 0;
+    height: 100%;
+    width: 100vw;
+
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-image: url('/images/header.webp');
+
+    @include on-tablet {
+      background-image: url('/images/header-tablet.webp');
+      background-position: center top;
+    }
+
+    @include on-desktop {
+      border-bottom-left-radius: $base-radius;
+      background-image: url('/images/header.webp');
+      width: 50vw;
+    }
+  }
+
+  &__section {
+    position: relative;
+    width: 100%;
+    z-index: 2;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    @include on-desktop {
+      justify-content: space-between;
+    }
+
+    &:last-child {
+      gap: map.get($spacing, 'sm');
+      align-items: flex-end;
+
+      @include grid;
+
+      @include on-desktop {
+        gap: 0;
+        flex-direction: row;
+        align-items: center;
+      }
+    }
+  }
+
+  &__subsection {
+    &:first-child {
+      display: flex;
+      flex-direction: column;
+      gap: map.get($spacing, 'sm');
+
+      grid-column: span 5;
+    }
+
+    h2 {
+      font-size: 16px;
+      font-weight: 700;
+
+      @include on-tablet {
+        font-size: map.get(map.get($typography, 'h2'), 'font-size-desktop');
+      }
+    }
+
+    h4 {
+      font-size: 14px;
+
+      @include on-tablet {
+        font-size: map.get(map.get($typography, 'h4'), 'font-size-desktop');
+      }
+    }
+
+    &:last-child {
+      margin-left: auto;
+      grid-column: -1;
+      justify-self: end;
+
+      @include on-desktop {
+        margin-left: none;
+      }
+
+      button {
+        &:first-child {
+          display: none;
+
+          @include on-desktop {
+            display: block;
+          }
+        }
+
+        &:last-child {
+          color: var(--text-color);
+          border-color: var(--text-color);
+
+          @include on-desktop {
+            display: none;
+          }
+        }
+      }
+    }
+  }
+}

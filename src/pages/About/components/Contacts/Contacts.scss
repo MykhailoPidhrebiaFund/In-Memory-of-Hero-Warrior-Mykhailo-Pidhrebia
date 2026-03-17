@@ -1,0 +1,35 @@
+@use 'sass:map';
+@use '../../../../scss/vars' as *;
+@use '../../../../scss/mixins' as *;
+
+.contacts {
+  display: flex;
+  flex-direction: column;
+  gap: map.get($spacing, 'md');
+
+  &__list {
+    display: flex;
+    flex-direction: column;
+    gap: map.get($spacing, 'sm');
+
+    @include on-tablet {
+      gap: map.get($spacing, 'md');
+    }
+  }
+
+  &__item {
+    display: flex;
+    align-items: center;
+    gap: map.get($spacing, '2xs');
+
+    svg {
+      width: 16px;
+      height: 16px;
+
+      @include on-tablet {
+        width: 24px;
+        height: 24px;
+      }
+    }
+  }
+}

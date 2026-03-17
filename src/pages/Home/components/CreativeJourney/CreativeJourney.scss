@@ -1,0 +1,36 @@
+@use 'sass:map';
+@use '../../../../scss/vars' as *;
+@use '../../../../scss/mixins' as *;
+@use '../../../../scss/typography' as *;
+
+.creative-journey {
+  display: flex;
+  flex-direction: column;
+  gap: map.get($spacing, 'md');
+
+  &__section {
+    &--swiper {
+      @include container;
+      padding-right: 0;
+
+      @include on-tablet {
+        padding-right: $section-padding;
+      }
+    }
+
+    &--author p {
+      @include secondary-text;
+    }
+
+    &--btn {
+      display: flex;
+      justify-content: flex-end;
+    }
+  }
+
+  &__author {
+    @include on-tablet {
+      text-align: end;
+    }
+  }
+}
