@@ -4,6 +4,6 @@ import svgr from 'vite-plugin-svgr';
 
 // https://vite.dev/config/
 export default defineConfig({
-  base: '/In-Memory-of-Hero-Warrior-Mykhailo-Pidhrebia/',
+  base: '/',
   plugins: [react(), svgr()],
 });
